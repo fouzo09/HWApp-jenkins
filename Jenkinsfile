@@ -2,8 +2,8 @@ pipeline{
     environment{
         IMAGE_NAME="alpinehelloworld"
         IMAGE_TAG="latest"
-        STAGING="fouzo09_staging"
-        PRODUCTION="fouzo09_production"
+        STAGING="fouzo_staging"
+        PRODUCTION="fouzo_production"
     }
     agent none
     stages{
@@ -12,7 +12,7 @@ pipeline{
             steps{
                 script{
                     sh  '''
-                            docker run --name $IMAGE_NAME -d-p 5001:5000 eazytraining/$IMAGE_NAME:$IMAGE_TAG
+                            docker run -d -p 5001:5000 --name $IMAGE_NAME  heroku/$IMAGE_NAME:$IMAGE_TAG
                             sleep 5
                         '''
                 }
