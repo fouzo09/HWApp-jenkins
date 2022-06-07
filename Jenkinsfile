@@ -46,7 +46,7 @@ pipeline{
             when {
                 expression { GIT_BRANCH == "origin/master" }
             }
-            agent none
+            agent any
             environment{
                 HEROKU_API_KEY=crendentials("heroku_api_key")
             }
