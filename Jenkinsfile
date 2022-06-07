@@ -8,7 +8,7 @@ pipeline{
     agent none
     stages{
         stage("Build image"){
-            agent none
+            agent any
             steps{
                 script{
                     sh  '''
@@ -20,7 +20,7 @@ pipeline{
         }
 
         stage("Test image"){
-            agent none
+            agent any
             steps{
                 script{
                     sh  '''
@@ -31,7 +31,7 @@ pipeline{
         }
 
         stage("Remove container"){
-            agent none
+            agent any
             steps{
                 script{
                     sh  '''
