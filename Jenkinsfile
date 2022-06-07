@@ -2,8 +2,8 @@ pipeline{
     environment{
         IMAGE_NAME="alpinehelloworld"
         IMAGE_TAG="latest"
-        STAGING="training_staging"
-        PRODUCTION="training_production"
+        STAGING="training-staging"
+        PRODUCTION="training-production"
     }
     agent none
     stages{
@@ -54,7 +54,7 @@ pipeline{
                 script{
                     sh  '''
                             heroku container:login
-                            heroku create $STAGING || echo "projet disponible"
+                            heroku create $STAGING
                             heroku container:push -a $STAGING web
                             heroku container:release -a $STAGING web
                         '''
@@ -74,7 +74,7 @@ pipeline{
                 script{
                     sh  '''
                             heroku container:login
-                            heroku create $PRODUCTION || echo "projet disponible"
+                            heroku create $PRODUCTION
                             heroku container:push -a $PRODUCTION web
                             heroku container:release -a $PRODUCTION web
                         '''
