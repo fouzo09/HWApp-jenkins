@@ -12,7 +12,7 @@ pipeline{
             steps{
                 script{
                     sh  '''
-                            docker run -d -p 5001:5000 --name $IMAGE_NAME  heroku/$IMAGE_NAME:$IMAGE_TAG
+                            docker run -d -p 5001:5000 -e PORT=5000 --name $IMAGE_NAME  eazytraining/$IMAGE_NAME:$IMAGE_TAG
                             sleep 5
                         '''
                 }
@@ -24,7 +24,7 @@ pipeline{
             steps{
                 script{
                     sh  '''
-                            curl http://172.28.128.6:5001 | grep -q "Hello world!"
+                            curl http://localhost:5001 | grep -q "Hello world!"
                         '''
                 }
             }
