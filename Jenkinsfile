@@ -2,8 +2,8 @@ pipeline{
     environment{
         IMAGE_NAME="alpinehelloworld"
         IMAGE_TAG="latest"
-        STAGING="training-fouzo09-staging"
-        PRODUCTION="training-fouzo09-production"
+        STAGING="training-fouzohb-staging"
+        PRODUCTION="training-fouzohb-production"
     }
     agent none
     stages{
